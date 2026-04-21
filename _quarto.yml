@@ -8,6 +8,8 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - href: L_Bright_Resume_St_Lukes_Data_Engineer_April_2026.pdf
+        text: Resume
 
 format:
   html:
