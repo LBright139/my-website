@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Sample Analysis – Logan Bright’s Website</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Logan Bright’s Website</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./sample_analysis.html" aria-current="page"> 
+<span class="menu-text">Sample Analysis</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./L_Bright_Resume.pdf" target="_blank"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./L_Bright_Cover_Letter.pdf" target="_blank"> 
+<span class="menu-text">Cover Letter</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#packages-data-setup" id="toc-packages-data-setup" class="nav-link active" data-scroll-target="#packages-data-setup">Packages &amp; Data Setup</a>
+  <ul class="collapse">
+  <li><a href="#python-packages" id="toc-python-packages" class="nav-link" data-scroll-target="#python-packages">Python Packages</a></li>
+  <li><a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation">Data Manipulation</a></li>
+  </ul></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory Data Analysis</a>
+  <ul class="collapse">
+  <li><a href="#missing-values" id="toc-missing-values" class="nav-link" data-scroll-target="#missing-values">Missing Values</a></li>
+  </ul></li>
+  <li><a href="#data-splitting-preprocessing" id="toc-data-splitting-preprocessing" class="nav-link" data-scroll-target="#data-splitting-preprocessing">Data Splitting &amp; Preprocessing</a></li>
+  <li><a href="#model-building-comparison" id="toc-model-building-comparison" class="nav-link" data-scroll-target="#model-building-comparison">Model Building &amp; Comparison</a>
+  <ul class="collapse">
+  <li><a href="#decision-tree-classifier" id="toc-decision-tree-classifier" class="nav-link" data-scroll-target="#decision-tree-classifier">Decision Tree Classifier</a></li>
+  <li><a href="#random-forest" id="toc-random-forest" class="nav-link" data-scroll-target="#random-forest">Random Forest</a></li>
+  <li><a href="#boosting" id="toc-boosting" class="nav-link" data-scroll-target="#boosting">Boosting</a></li>
+  </ul></li>
+  <li><a href="#performance-analysis" id="toc-performance-analysis" class="nav-link" data-scroll-target="#performance-analysis">Performance Analysis</a></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Sample Analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>I conducted my sample analysis on a dataset provided by the 2024 COMAP Problem ‘Momentum in Tennis’. For a quick summary, the problem aims to understand if the momentum, defined as “strength or force gained by motion or by a series of events”, in a tennis match is quantifiable and to build a model to predict changes in momentum (also called swings in play). Click <a href="https://www.comap.org/membership/member-resources/item/momentum-in-tennis">here</a> for the link to the full problem, along with the provided dataset.</p>
+<p>Before we dive into the sample analysis, here are some rules of tennis you should be aware of:</p>
+<ul>
+<li>Point structure of tennis
+<ul>
+<li>To win a match, you need to win 5 sets</li>
+<li>To win a set, you need to win at least 6 games</li>
+<li>To win a game, you need to win at least 4 points
+<ul>
+<li>Within a game, points go by 0 (Love), 15, 30, and 40 (also possibly add-in and add-out)</li>
+</ul></li>
+</ul></li>
+<li>Serving in tennis
+<ul>
+<li>Players alternate who is serving each game (e.g.&nbsp;P1 serves during game 1, P2 servers during game 2, P1 serves during game 3, etc.)</li>
+<li>Players get two serves
+<ul>
+<li>If they miss both serves, it is called a double fault</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Now that we have that situated, here are the four goals of the problem:</p>
+<ol type="1">
+<li>Develop a model that captures the flow of play as points occur
+<ul>
+<li>The model should identify which player is performing better at a given time in a match and how much better they are performing</li>
+</ul></li>
+<li>Use your model/metric to assess if swings in play by one player are random</li>
+<li>Develop a model that predicts these swings in the match
+<ul>
+<li>What factors seem most related (if any)?</li>
+</ul></li>
+<li>Test the model on one or more matches
+<ul>
+<li>How well does it predict swings in the match?</li>
+<li>If the model performs poorly, can you identify any factors that might need to be included in future models?</li>
+</ul></li>
+</ol>
+<section id="packages-data-setup" class="level1">
+<h1>Packages &amp; Data Setup</h1>
+<section id="python-packages" class="level2">
+<h2 class="anchored" data-anchor-id="python-packages">Python Packages</h2>
+<p>This project was programmed entirely in Python. The packages used consisted of pandas, numpy, matplotlib.pyplot, plotnine, missingno, re, joblib, and sklearn.</p>
+<div id="b13e63d0" class="cell" data-fold-code="true" data-execution_count="1">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> missingno <span class="im">as</span> mo</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> joblib <span class="im">import</span> Memory</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split, StratifiedKFold, cross_validate, GridSearchCV, RandomizedSearchCV</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler, OneHotEncoder</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.impute <span class="im">import</span> SimpleImputer</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> ConfusionMatrixDisplay</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier, plot_tree</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier, HistGradientBoostingClassifier</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> permutation_importance</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="data-manipulation" class="level2">
+<h2 class="anchored" data-anchor-id="data-manipulation">Data Manipulation</h2>
+<p>As stated above, this sample analysis uses data from each match during the 2023 Wimbledon. I used an edited version because there were some errors in the data that I fixed. Normally, I wouldn’t mess with the raw data.</p>
+<div id="1b4aa421" class="cell" data-fold-code="true" data-execution_count="2">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># loading dataset</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>match <span class="op">=</span> pd.read_csv(<span class="st">"2024_Wimbledon_featured_matches_edited.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>After initially looking at the data, I noticed there were a handful of binary variables that had two columns, one for each player, that could be condensed into one column. Thus, I combined the columns for if the player hits an ace serve, hits a winner shot, has a double fault, made an unforced error, made it to the net during the point, had an opportunity to win a game the other player was serving (called a break point), if they won the break point, and if they missed the break point.</p>
+<div id="59f3f1a0" class="cell" data-fold-code="true" data-execution_count="3">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># getting number of observations</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> match.shape[<span class="dv">0</span>]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># combining binary p1 and p2 columns</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(rows):</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> match[<span class="st">'p2_ace'</span>][i] <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        match.at[i, <span class="st">'p1_ace'</span>] <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> match[<span class="st">'p2_winner'</span>][i] <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        match.at[i, <span class="st">'p1_winner'</span>] <span class="op">=</span> <span class="dv">2</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> match[<span class="st">'p2_double_fault'</span>][i] <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        match.at[i, <span class="st">'p1_double_fault'</span>] <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> match[<span class="st">'p2_unf_err'</span>][i] <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        match.at[i, <span class="st">'p1_unf_err'</span>] <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> match[<span class="st">'p2_net_pt'</span>][i] <span class="op">==</span> <span class="dv">1</span>: </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        match.at[i, <span class="st">'p1_net_pt'</span>] <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> match[<span class="st">'p2_net_pt_won'</span>][i] <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        match.at[i, <span class="st">'p1_net_pt_won'</span>] <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> match[<span class="st">'p2_break_pt'</span>][i] <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        match.at[i, <span class="st">'p1_break_pt'</span>] <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> match[<span class="st">'p2_break_pt_won'</span>][i] <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        match.at[i, <span class="st">'p1_break_pt_won'</span>] <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> match[<span class="st">'p2_break_pt_missed'</span>][i] <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        match.at[i, <span class="st">'p1_break_pt_missed'</span>] <span class="op">=</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Despite fixing some errors in the data, there were some more errors in the elapsed time between points in the middle of one of the matches. I knew I could fix this error without editing the raw data. After I corrected any errors in the elapsed time, I converted the elapsed time into the total seconds that have passed at that given point since the beginning of the match.</p>
+<div id="32c7afcc" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rows 584 to 634 have incorrect format for elapsed_time</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace hour 24 with 0 and hour 25 with 1 in rows 584-634</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>match.loc[<span class="dv">584</span>:<span class="dv">634</span>, <span class="st">'elapsed_time'</span>] <span class="op">=</span> match.loc[<span class="dv">584</span>:<span class="dv">634</span>, <span class="st">'elapsed_time'</span>].<span class="bu">str</span>.replace(<span class="vs">r'</span><span class="dv">^</span><span class="vs">24:'</span>, <span class="st">'0:'</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>match.loc[<span class="dv">584</span>:<span class="dv">634</span>, <span class="st">'elapsed_time'</span>] <span class="op">=</span> match.loc[<span class="dv">584</span>:<span class="dv">634</span>, <span class="st">'elapsed_time'</span>].<span class="bu">str</span>.replace(<span class="vs">r'</span><span class="dv">^</span><span class="vs">25:'</span>, <span class="st">'1:'</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># changing elapsed_time into number of seconds instead of a string</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>elapsed_time <span class="op">=</span> []</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(rows):</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    dt <span class="op">=</span> datetime.strptime(match[<span class="st">'elapsed_time'</span>][i], <span class="st">'%H:%M:%S'</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    delta <span class="op">=</span> dt <span class="op">-</span> datetime(<span class="dv">1900</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    elapsed_time.append(delta.total_seconds())</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>match[<span class="st">'elapsed_time'</span>] <span class="op">=</span> elapsed_time</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Now that I have merged some columns and fixed some data entry errors, I dropped redundant columns, renamed the columns I merged, and then categorized the columns into if they were a numerical variable or categorical variable. Then, I changed all the category variables into category dtypes.</p>
+<div id="73ef611c" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dropping the p2 columns that were combined</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>match <span class="op">=</span> match.drop(columns<span class="op">=</span> [<span class="st">'p2_ace'</span>, <span class="st">'p2_winner'</span>, <span class="st">'p2_double_fault'</span>, <span class="st">'p2_unf_err'</span>, <span class="st">'p2_net_pt'</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                             <span class="st">'p2_net_pt_won'</span>, <span class="st">'p2_break_pt'</span>, <span class="st">'p2_break_pt_won'</span>, <span class="st">'p2_break_pt_missed'</span>])</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># changing column names</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>match <span class="op">=</span> match.rename(columns<span class="op">=</span> {<span class="st">'p1_ace'</span>: <span class="st">'ace'</span>, <span class="st">'p1_winner'</span>: <span class="st">'winner'</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                               <span class="st">'p1_double_fault'</span>: <span class="st">'double_fault'</span>, <span class="st">'p1_unf_err'</span>: <span class="st">'unf_err'</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                               <span class="st">'p1_net_pt'</span>: <span class="st">'net_pt'</span>, <span class="st">'p1_net_pt_won'</span>: <span class="st">'net_pt_won'</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                               <span class="st">'p1_break_pt'</span>: <span class="st">'break_pt'</span>, <span class="st">'p1_break_pt_won'</span>: <span class="st">'break_pt_won'</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>                               <span class="st">'p1_break_pt_missed'</span>: <span class="st">'break_pt_missed'</span>})</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># categorizing variables</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> [<span class="st">'elapsed_time'</span>, <span class="st">'point_no'</span>, <span class="st">'p1_points_won'</span>, <span class="st">'p2_points_won'</span>, <span class="st">'p1_distance_run'</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">'p2_distance_run'</span>, <span class="st">'rally_count'</span>, <span class="st">'speed_mph'</span>]</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>cat_cols <span class="op">=</span> [<span class="st">'set_no'</span>, <span class="st">'game_no'</span>, <span class="st">'p1_sets'</span>, <span class="st">'p2_sets'</span>, <span class="st">'p1_games'</span>, <span class="st">'p2_games'</span>, <span class="st">'p1_score'</span>, <span class="st">'p2_score'</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">'server'</span>, <span class="st">'serve_no'</span>, <span class="st">'point_victor'</span>, <span class="st">'game_victor'</span>, <span class="st">'set_victor'</span>, <span class="st">'ace'</span>, <span class="st">'winner'</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">'winner_shot_type'</span>, <span class="st">'double_fault'</span>, <span class="st">'unf_err'</span>, <span class="st">'net_pt'</span>, <span class="st">'net_pt_won'</span>, <span class="st">'break_pt'</span>,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">'break_pt_won'</span>, <span class="st">'break_pt_missed'</span>, <span class="st">'serve_width'</span>, <span class="st">'serve_depth'</span>, <span class="st">'return_depth'</span>]</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># changed category columns to category dtype</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>match[cat_cols] <span class="op">=</span> match[cat_cols].astype(<span class="st">'category'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>The last thing I did for the data manipulation was to compute the difference in the accumulated points between the players at the end of each point, compute the derivative at each point in the game, then calculated swings in play as the critical points in the difference in accumulated points between the players.</p>
+<div id="2d4ed230" class="cell" data-fold-code="true" data-execution_count="6">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dropping id variables (except match_id to seperate matches later)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mat <span class="op">=</span> match.drop(columns<span class="op">=</span> [<span class="st">'player1'</span>, <span class="st">'player2'</span>])</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># calculating diff in points</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> mat.shape[<span class="dv">0</span>]</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>diff <span class="op">=</span> []</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(rows):</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> mat[<span class="st">'elapsed_time'</span>][i] <span class="op">==</span> <span class="st">'0:00:00'</span> <span class="kw">or</span> i <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        diff.append(<span class="dv">0</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> i <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        pt_diff <span class="op">=</span> mat[<span class="st">'p1_points_won'</span>][i <span class="op">-</span> <span class="dv">1</span>] <span class="op">-</span> mat[<span class="st">'p2_points_won'</span>][i <span class="op">-</span> <span class="dv">1</span>]</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        diff.append(pt_diff)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>mat[<span class="st">'diff'</span>] <span class="op">=</span> diff</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># computing derivatives</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>mat[<span class="st">'dx'</span>] <span class="op">=</span> np.gradient(mat[<span class="st">'diff'</span>])</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(rows):</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        mat.at[i, <span class="st">'dx'</span>] <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> mat[<span class="st">'elapsed_time'</span>][i] <span class="op">==</span> <span class="st">'0:00:00'</span> <span class="kw">and</span> i <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        mat.at[i, <span class="st">'dx'</span>] <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> mat[<span class="st">'point_victor'</span>][i] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> mat[<span class="st">'point_victor'</span>][i <span class="op">-</span> <span class="dv">1</span>] <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>            mat.at[i <span class="op">-</span> <span class="dv">1</span>, <span class="st">'dx'</span>] <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> mat[<span class="st">'point_victor'</span>][i] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> mat[<span class="st">'point_victor'</span>][i <span class="op">-</span> <span class="dv">1</span>] <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>            mat.at[i <span class="op">-</span> <span class="dv">1</span>, <span class="st">'dx'</span>] <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> mat[<span class="st">'point_victor'</span>][i] <span class="op">==</span> <span class="dv">2</span> <span class="kw">and</span> mat[<span class="st">'point_victor'</span>][i <span class="op">-</span> <span class="dv">1</span>] <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>            mat.at[i <span class="op">-</span> <span class="dv">1</span>, <span class="st">'dx'</span>] <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> mat[<span class="st">'point_victor'</span>][i] <span class="op">==</span> <span class="dv">2</span> <span class="kw">and</span> mat[<span class="st">'point_victor'</span>][i <span class="op">-</span> <span class="dv">1</span>] <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>            mat.at[i <span class="op">-</span> <span class="dv">1</span>, <span class="st">'dx'</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">1.0</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>dx_idx <span class="op">=</span> []</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(rows):</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>        dx_idx.append(<span class="va">False</span>)</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> dx_idx[i <span class="op">-</span> <span class="dv">2</span>] <span class="op">==</span> <span class="va">True</span> <span class="kw">and</span> dx_idx[i <span class="op">-</span> <span class="dv">3</span>] <span class="op">==</span> <span class="va">False</span>:</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>            dx_idx.append(<span class="va">True</span>)</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> mat[<span class="st">'dx'</span>][i] <span class="op">==</span> <span class="fl">0.0</span> <span class="kw">or</span> mat[<span class="st">'dx'</span>][i] <span class="op">==</span> <span class="fl">1.0</span> <span class="kw">or</span> mat[<span class="st">'dx'</span>][i] <span class="op">==</span> <span class="op">-</span><span class="fl">1.0</span>:</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>            dx_idx.append(<span class="va">False</span>)</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>            dx_idx.append(<span class="va">True</span>)</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>            dx_idx[i <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="co"># calculating swings in match</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>swings_in_play <span class="op">=</span> []</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(rows):</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> mat[<span class="st">'dx'</span>][i] <span class="op">==</span> <span class="fl">0.0</span> <span class="kw">and</span> mat[<span class="st">'point_victor'</span>][i] <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>        swings_in_play.append(<span class="st">'Player 1'</span>)</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> mat[<span class="st">'dx'</span>][i] <span class="op">==</span> <span class="fl">0.0</span> <span class="kw">and</span> mat[<span class="st">'point_victor'</span>][i] <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>        swings_in_play.append(<span class="st">'Player 2'</span>)</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>        swings_in_play.append(<span class="st">'No Swing'</span>)</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>mat[<span class="st">'swings_in_play'</span>] <span class="op">=</span> swings_in_play</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a><span class="co"># changing swings_in_play to category type</span></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>mat[<span class="st">'swings_in_play'</span>] <span class="op">=</span> mat[<span class="st">'swings_in_play'</span>].astype(<span class="st">'category'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+</section>
+<section id="exploratory-data-analysis" class="level1">
+<h1>Exploratory Data Analysis</h1>
+<p>Here is the distribution of the swings in play variable.</p>
+<div id="c726cd44" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> (ggplot(mat, aes(x<span class="op">=</span> <span class="st">'swings_in_play'</span>, y<span class="op">=</span> after_stat(<span class="st">'count'</span>))) <span class="op">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>     geom_bar(color<span class="op">=</span> <span class="st">'blue'</span>) <span class="op">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>     labs(title<span class="op">=</span> <span class="st">"Historgram of Swings in Play"</span>, x<span class="op">=</span> <span class="st">'Swings in Play'</span>, y<span class="op">=</span> <span class="st">'Count'</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>p.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sample_analysis_files/figure-html/cell-8-output-1.png" width="672" height="480" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Here is a line plot of the final match of the 2023 Wimbledon. It showcases the difference in accumulated points between both players at a given point in the match. Since accumulated points does not easily translate to the set and game score for each player, it only roughly indicates which player is winning and by how much.</p>
+<div id="b2846f7c" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># grouping data to find out the different matches in the dataset</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>match_grouped <span class="op">=</span> mat.groupby(<span class="st">'match_id'</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create a dictionary of DataFrames, one per match_id</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>match_sets <span class="op">=</span> {match_id: group.copy() <span class="cf">for</span> match_id, group <span class="kw">in</span> match_grouped}</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># graph of final wimbledon match</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> (ggplot(match_sets[<span class="st">'2023-wimbledon-1701'</span>], aes(x<span class="op">=</span> <span class="st">'elapsed_time'</span>, y<span class="op">=</span> <span class="st">'diff'</span>)) <span class="op">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    geom_line(color<span class="op">=</span> <span class="st">'blue'</span>, linetype<span class="op">=</span> <span class="st">'solid'</span>, size<span class="op">=</span> <span class="fl">0.7</span>) <span class="op">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    labs(title <span class="op">=</span> <span class="st">'Final Wimbledon Match'</span>, x<span class="op">=</span> <span class="st">'Elapsed Time (s)'</span>, y<span class="op">=</span> <span class="st">'Difference in Points'</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>p.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sample_analysis_files/figure-html/cell-9-output-1.png" width="672" height="480" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="missing-values" class="level2">
+<h2 class="anchored" data-anchor-id="missing-values">Missing Values</h2>
+<p>I spent most of my data exporation looking into some of the missing values. There are missing values for the speed of the serve, the width of the serve, the depth of the serve, and the depth of the return. I particularly find this odd because each point involves one of the players serving at least once. But it is possible for the serve to not be recorded if it was a double fault. Similarly, it is possible the return depth was not recorded if the serve was an ace. So, I did a bit more digging. First, I created a heatmap of the missing variables.</p>
+<div id="ed0da654" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mo.heatmap(mat, figsize<span class="op">=</span> (<span class="dv">7</span>,<span class="dv">7</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sample_analysis_files/figure-html/cell-10-output-1.png" width="685" height="664" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As you can see, there is a perfect correlation between serve depth and serve width. On the other hand, the speed of the serve and the depth of the return are not strongly correlated to the other variables with missing data.</p>
+<p>I looked more into if missing values for serve speed, width, and depth are the result of double faults and didn’t come to any strong conclusions. It appears that at least most points, if not all, that occur due to a double fault have missing values for serve speed, width, and depth but not all missing values for these three variables occured when there was a double fault. A similar story occured for return depth and ace serves.</p>
+</section>
+</section>
+<section id="data-splitting-preprocessing" class="level1">
+<h1>Data Splitting &amp; Preprocessing</h1>
+<p>Before I start building and fitting models, I split the dataset into a train and test set. I startify the dataset based on swings in play.</p>
+<div id="6f5536bb" class="cell" data-fold-code="true" data-execution_count="10">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dropping match id and dx variables</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mat_dr <span class="op">=</span> mat.drop(columns<span class="op">=</span> [<span class="st">'match_id'</span>, <span class="st">'dx'</span>])</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># going with a 80-20 split</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>mat_train, mat_test <span class="op">=</span> train_test_split(</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    mat_dr,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    train_size<span class="op">=</span> <span class="fl">0.8</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    stratify<span class="op">=</span> mat_dr[<span class="st">'swings_in_play'</span>],</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    random_state<span class="op">=</span> <span class="dv">4025</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Next, I created a dataset with all of the predictors and a dataset with just the outcome variable for both the training and test datasets. Then, I created a preproccesing pipeline to be used when model building. This pipeline works differently depending if the variable is numerical or categorical. For numerical variables, the pipeline simply imputed the median value for any missing values in the dataset. I choose the median value as the median value is not as sensitive to outliers as the mean is. For categorical variables, the pipeline imputes the most frequent category for missing values and then creates dummy variables for each category, except the first category of a variable.</p>
+<div id="89f1c14a" class="cell" data-fold-code="true" data-execution_count="11">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># defining X and y sets</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> mat_train.drop(columns<span class="op">=</span> [<span class="st">'swings_in_play'</span>])</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> mat_train[<span class="st">'swings_in_play'</span>]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> mat_test.drop(columns<span class="op">=</span> [<span class="st">'swings_in_play'</span>])</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> mat_test[<span class="st">'swings_in_play'</span>]</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># preprocessing pipeline</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>preproc <span class="op">=</span> ColumnTransformer([</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'num'</span>, Pipeline([</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        (<span class="st">'impute'</span>, SimpleImputer(strategy<span class="op">=</span> <span class="st">'median'</span>))</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    ]), num_cols),</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'cat'</span>, Pipeline([</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        (<span class="st">'impute'</span>, SimpleImputer(strategy<span class="op">=</span> <span class="st">'most_frequent'</span>)),</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        (<span class="st">'one-hot'</span>, OneHotEncoder(drop<span class="op">=</span> <span class="st">'first'</span>, handle_unknown<span class="op">=</span> <span class="st">'ignore'</span>, sparse_output<span class="op">=</span> <span class="va">False</span>))</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    ]), cat_cols)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>], remainder<span class="op">=</span> <span class="st">'drop'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="model-building-comparison" class="level1">
+<h1>Model Building &amp; Comparison</h1>
+<p>Since this is a classification problem that is focused on predicting accuracy, I decided to build a random forest model and a boosting model. Before I do that, I created a decision tree model as a baseline for comparison.</p>
+<section id="decision-tree-classifier" class="level2">
+<h2 class="anchored" data-anchor-id="decision-tree-classifier">Decision Tree Classifier</h2>
+<p>I built a decision tree classifier as a baseline model and evaluated its performance on the test set using cross validation and accuracy as the metric. The graph below shows its associated confusion matrix.</p>
+<div id="d8035319" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># decision tree pipeline</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>tree_mod <span class="op">=</span> Pipeline([</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'preproc'</span>, preproc),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'model'</span>, DecisionTreeClassifier(random_state<span class="op">=</span> <span class="dv">4025</span>))</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># stratified k fold with 10 splits with scoring</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>skf <span class="op">=</span> StratifiedKFold(n_splits<span class="op">=</span> <span class="dv">10</span>, shuffle<span class="op">=</span> <span class="va">True</span>, random_state<span class="op">=</span> <span class="dv">4025</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># cross validation</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>tree_cv <span class="op">=</span> cross_validate(tree_mod, X_train, y_train, cv<span class="op">=</span> skf, scoring<span class="op">=</span> {<span class="st">'acc'</span>: <span class="st">'accuracy'</span>})</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># graph of confusion matrix</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>tree_mod.fit(X_train, y_train)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>y_preds <span class="op">=</span> tree_mod.predict(X_test)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">5</span>))</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>ConfusionMatrixDisplay.from_predictions(</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    y_test, y_preds,</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax, colorbar<span class="op">=</span><span class="va">False</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Confusion Matrix'</span>)</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sample_analysis_files/figure-html/cell-13-output-1.png" width="498" height="468" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Next, I tuned the cost complexity parameter, <span class="math inline">\(\alpha\)</span>, of the decision tree model using cross validation (CV). The plot belows shows the accuracy using CV for each value of alpha specified. Then using the one-standard error rule, I chose the largest <span class="math inline">\(\alpha\)</span> value to create a more parsimonous model. The optimal value for <span class="math inline">\(\alpha\)</span> is 0.00379.</p>
+<div id="66a69d48" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># param dictionary</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>param_grid <span class="op">=</span> {</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'model__ccp_alpha'</span>: np.logspace(<span class="op">-</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">20</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># defining grid search</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>tree_grid <span class="op">=</span> GridSearchCV(</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    tree_mod,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    param_grid<span class="op">=</span> param_grid,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    scoring<span class="op">=</span> <span class="st">'accuracy'</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    cv<span class="op">=</span> skf</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># fitting the model to training set</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>tree_grid.fit(X_train, y_train)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>tree_results <span class="op">=</span> pd.DataFrame(tree_grid.cv_results_)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co"># graphing acc against alpha values</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>ax.errorbar(tree_results[<span class="st">'param_model__ccp_alpha'</span>], tree_results[<span class="st">'mean_test_score'</span>],</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>            yerr<span class="op">=</span>tree_results[<span class="st">'std_test_score'</span>]<span class="op">/</span>np.sqrt(<span class="dv">10</span>), marker<span class="op">=</span><span class="st">'o'</span>)</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>ax.set_xscale(<span class="st">'log'</span>)</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'CCP Alpha'</span>)</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Accuracy'</span>)</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Decision Tree CV Results'</span>)</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="co"># obtaining good value for alpha using accuracy and one standard error rule</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>best_idx <span class="op">=</span> tree_results[<span class="st">'mean_test_score'</span>].argmax()</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>best_acc <span class="op">=</span> tree_results.loc[best_idx, <span class="st">'mean_test_score'</span>]</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>best_se <span class="op">=</span> tree_results.loc[best_idx, <span class="st">'std_test_score'</span>] <span class="op">/</span> np.sqrt(<span class="dv">10</span>)</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>threshold <span class="op">=</span> best_acc <span class="op">-</span> best_se</span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>candidates <span class="op">=</span> tree_results[tree_results[<span class="st">'mean_test_score'</span>] <span class="op">&gt;=</span> threshold]</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>optimal_alpha <span class="op">=</span> candidates[<span class="st">'param_model__ccp_alpha'</span>].<span class="bu">max</span>() <span class="co"># larger alpha = more parsimonious model</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sample_analysis_files/figure-html/cell-14-output-1.png" width="523" height="377" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now, I created a new decision tree classifier with the optimal value for <span class="math inline">\(\alpha\)</span>. I evaluated it using stratified cross validation and got an accuracy of 0.784. The associated confusion matrix is shown below.</p>
+<div id="ec4855e1" class="cell" data-fold-code="true" data-execution_count="14">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pipeline with optimal alpha value</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>best_tree_mod <span class="op">=</span> Pipeline([</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'preproc'</span>, preproc),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'model'</span>, DecisionTreeClassifier(</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        ccp_alpha<span class="op">=</span> optimal_alpha,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        random_state<span class="op">=</span><span class="dv">4025</span>))</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># cross validation</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>tree_cv <span class="op">=</span> cross_validate(best_tree_mod, X_train, y_train, cv<span class="op">=</span> skf, scoring<span class="op">=</span> {<span class="st">'acc'</span>: <span class="st">'accuracy'</span>})</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co"># graph of confusion matrix</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>best_tree_mod.fit(X_train, y_train)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>y_preds <span class="op">=</span> best_tree_mod.predict(X_test)</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">5</span>))</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>ConfusionMatrixDisplay.from_predictions(</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    y_test, y_preds,</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax, colorbar<span class="op">=</span><span class="va">False</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Confusion Matrix'</span>)</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sample_analysis_files/figure-html/cell-15-output-1.png" width="498" height="468" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Looking at the confusion matrix, it appears the model struggles the most with predicting no changes in momentum for one player.</p>
+<p>Here is a plot of the associated decision tree.</p>
+<div id="b10e06ae" class="cell" data-execution_count="15">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plotting the tree</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>feature_names <span class="op">=</span> <span class="bu">list</span>(best_tree_mod.named_steps[<span class="st">'preproc'</span>].get_feature_names_out())</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>plot_tree(best_tree_mod.named_steps[<span class="st">'model'</span>],</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>          feature_names<span class="op">=</span> feature_names,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>          max_depth<span class="op">=</span> <span class="dv">3</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>          filled<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sample_analysis_files/figure-html/cell-16-output-1.png" width="758" height="566" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Lastly, here is a plot showing the top ten features indicated by the decision tree model.</p>
+<div id="9eaf4138" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># getting feature names</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>feature_names <span class="op">=</span> [</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    name.split(<span class="st">'__'</span>, <span class="dv">1</span>)[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> name <span class="kw">in</span> best_tree_mod.named_steps[<span class="st">'preproc'</span>].get_feature_names_out()]</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># getting mdi values</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>tree_mdi <span class="op">=</span> best_tree_mod.named_steps[<span class="st">'model'</span>].feature_importances_</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co"># plotting mdi for each feature</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>tree <span class="op">=</span> (pd.DataFrame({<span class="st">'feature'</span>: feature_names, <span class="st">'importance'</span>: tree_mdi})</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>          .sort_values(<span class="st">'importance'</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">10</span>))</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>ax.barh(tree[<span class="st">'feature'</span>][::<span class="op">-</span><span class="dv">1</span>], tree[<span class="st">'importance'</span>][::<span class="op">-</span><span class="dv">1</span>], color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Mean Decrease in Impurity'</span>)</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'MDI — Decision Tree'</span>)</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sample_analysis_files/figure-html/cell-17-output-1.png" width="662" height="468" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The model indicates that the most imporant predictors are if player 2 was the point victor and if player 1 or player 2 have a score of 15 or 30.</p>
+</section>
+<section id="random-forest" class="level2">
+<h2 class="anchored" data-anchor-id="random-forest">Random Forest</h2>
+<p>Now, decision trees are known to not be the most accurate models, trading flexibility for interpretability. Thus, I decided to try a random forest model to help improve accuracy in predicting swings in play.</p>
+<p>Here I created a baseline random forest model and then tuned the number of max features to improve model accuracy. The optimal value for the number of max features is 25.</p>
+<div id="ccba8004" class="cell" data-execution_count="17">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># defining location for cache</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>memory <span class="op">=</span> Memory(location<span class="op">=</span> <span class="st">'cache'</span>, verbose <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># baseline random forest model</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>rf_mod <span class="op">=</span> Pipeline([</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'preproc'</span>, preproc),</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'model'</span>, RandomForestClassifier(random_state<span class="op">=</span> <span class="dv">4025</span>))</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>], memory<span class="op">=</span> memory)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># param dictionary</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>param_grid <span class="op">=</span> {</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'model__max_features'</span>: np.linspace(<span class="dv">11</span>, <span class="dv">27</span>, <span class="dv">17</span>, dtype<span class="op">=</span> np.int16)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="co"># defining grid search</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>rf_grid <span class="op">=</span> GridSearchCV(</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    rf_mod,</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    param_grid<span class="op">=</span> param_grid,</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    scoring<span class="op">=</span> <span class="st">'accuracy'</span>,</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>    cv<span class="op">=</span> skf,</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>    n_jobs<span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a><span class="co"># fitting the model to training set</span></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>rf_grid.fit(X_train, y_train)</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>rf_results <span class="op">=</span> pd.DataFrame(rf_grid.cv_results_)</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="co"># graphing acc against alpha values</span></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>ax.errorbar(rf_results[<span class="st">'param_model__max_features'</span>], rf_results[<span class="st">'mean_test_score'</span>],</span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>            yerr<span class="op">=</span>rf_results[<span class="st">'std_test_score'</span>]<span class="op">/</span>np.sqrt(<span class="dv">10</span>), marker<span class="op">=</span><span class="st">'o'</span>)</span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Number of Max Features'</span>)</span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Accuracy'</span>)</span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Random Forest CV Results'</span>)</span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a><span class="co"># obtaining good value for alpha using accuracy and one standard error rule</span></span>
+<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a>best_idx <span class="op">=</span> rf_results[<span class="st">'mean_test_score'</span>].argmax()</span>
+<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a>best_acc <span class="op">=</span> rf_results.loc[best_idx, <span class="st">'mean_test_score'</span>]</span>
+<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a>best_se <span class="op">=</span> rf_results.loc[best_idx, <span class="st">'std_test_score'</span>] <span class="op">/</span> np.sqrt(<span class="dv">10</span>)</span>
+<span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a>threshold <span class="op">=</span> best_acc <span class="op">-</span> best_se</span>
+<span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a>candidates <span class="op">=</span> rf_results[rf_results[<span class="st">'mean_test_score'</span>] <span class="op">&gt;=</span> threshold]</span>
+<span id="cb17-45"><a href="#cb17-45" aria-hidden="true" tabindex="-1"></a>optimal_max_features <span class="op">=</span> candidates[<span class="st">'param_model__max_features'</span>].<span class="bu">min</span>() <span class="co"># less features = less correlated</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sample_analysis_files/figure-html/cell-18-output-1.png" width="532" height="376" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now, I created a new random forest classifer with the optimal number of max values. I evaluated it using stratified cross validation and got an accuracy of 0.783. The associated confusion matrix is shown below.</p>
+<div id="57313bfa" class="cell" data-execution_count="18">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pipeline with optimal number of max features</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>best_rf_mod <span class="op">=</span> Pipeline([</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'preproc'</span>, preproc),</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'model'</span>, RandomForestClassifier(</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>        max_features<span class="op">=</span> optimal_max_features,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        random_state<span class="op">=</span> <span class="dv">4025</span>))</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>], memory<span class="op">=</span> memory)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># cross validation</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>rf_cv <span class="op">=</span> cross_validate(best_rf_mod, X_train, y_train, cv<span class="op">=</span> skf, scoring<span class="op">=</span> {<span class="st">'acc'</span>: <span class="st">'accuracy'</span>})</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># graph of confusion matrix</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>best_rf_mod.fit(X_train, y_train)</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>y_preds <span class="op">=</span> best_rf_mod.predict(X_test)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">5</span>))</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>ConfusionMatrixDisplay.from_predictions(</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    y_test, y_preds,</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax, colorbar<span class="op">=</span><span class="va">False</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Confusion Matrix'</span>)</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sample_analysis_files/figure-html/cell-19-output-1.png" width="498" height="468" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Here is a plot showing the top ten features indicated by the random forest model.</p>
+<div id="49775a2d" class="cell" data-execution_count="19">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># getting feature names</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>feature_names <span class="op">=</span> [</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    name.split(<span class="st">'__'</span>, <span class="dv">1</span>)[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> name <span class="kw">in</span> best_rf_mod.named_steps[<span class="st">'preproc'</span>].get_feature_names_out()]</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># getting mdi values</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>rf_mdi <span class="op">=</span> best_rf_mod.named_steps[<span class="st">'model'</span>].feature_importances_</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># plotting mdi for each feature</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>rf <span class="op">=</span> (pd.DataFrame({<span class="st">'feature'</span>: feature_names, <span class="st">'importance'</span>: rf_mdi})</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>          .sort_values(<span class="st">'importance'</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">10</span>))</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>ax.barh(rf[<span class="st">'feature'</span>][::<span class="op">-</span><span class="dv">1</span>], rf[<span class="st">'importance'</span>][::<span class="op">-</span><span class="dv">1</span>], color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Mean Decrease in Impurity'</span>)</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'MDI — Random Forest'</span>)</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sample_analysis_files/figure-html/cell-20-output-1.png" width="662" height="468" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The random forest model indcates that the top predictors in swings in play are if player 2 was the point victor and the distance both players ran during the point.</p>
+</section>
+<section id="boosting" class="level2">
+<h2 class="anchored" data-anchor-id="boosting">Boosting</h2>
+<p>The random forest model did not perform better than the decision tree model, thus I created a boosting model, known to be more flexible than random forest models. I chose to employ a histogram-based gradient boosting model, which handles missing values natively. Thus, I created a new pipeline that doesn’t involve imputing missing values.</p>
+<div id="ffc3f336" class="cell" data-execution_count="20">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new pipeline for boosting model</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>boost_preproc <span class="op">=</span> ColumnTransformer([</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'cat'</span>, Pipeline([</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        (<span class="st">'one-hot'</span>, OneHotEncoder(drop<span class="op">=</span> <span class="st">'first'</span>, handle_unknown<span class="op">=</span> <span class="st">'ignore'</span>, sparse_output<span class="op">=</span> <span class="va">False</span>))</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    ]), cat_cols)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>], remainder<span class="op">=</span> <span class="st">'passthrough'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>I followed a similar pattern as the random forest model, tuning the learning rate and maximum number of iterations of the model. The plot below displays the results of the CV. The best value for the learning rate is 0.003793 and the best value for the maximum number of iterations is 428.</p>
+<div id="dacacbcd" class="cell" data-execution_count="21">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># baseline histgradientboosting model</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>hist_mod <span class="op">=</span> Pipeline([</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'preproc'</span>, boost_preproc),</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'model'</span>, HistGradientBoostingClassifier(random_state<span class="op">=</span> <span class="dv">4025</span>))</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>], memory<span class="op">=</span> memory)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># param dictionary</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>param_grid <span class="op">=</span> {</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'model__learning_rate'</span>: np.logspace(<span class="op">-</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">20</span>),</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'model__max_iter'</span>: np.linspace(<span class="dv">50</span>, <span class="dv">450</span>, <span class="dv">20</span>, dtype<span class="op">=</span> np.int16)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="co"># defining randomized search with 50 iterations</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>hist_grid <span class="op">=</span> RandomizedSearchCV(</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    hist_mod,</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    param_distributions<span class="op">=</span> param_grid,</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    n_iter<span class="op">=</span> <span class="dv">50</span>,</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    scoring<span class="op">=</span> <span class="st">'accuracy'</span>,</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    cv<span class="op">=</span> skf,</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    n_jobs<span class="op">=</span> <span class="op">-</span><span class="dv">1</span>,</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    return_train_score<span class="op">=</span> <span class="va">True</span>,</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>    random_state<span class="op">=</span> <span class="dv">4025</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="co"># fitting the model to the training set</span></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>hist_grid.fit(X_train, y_train)</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>hist_results <span class="op">=</span> pd.DataFrame(hist_grid.cv_results_)</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a><span class="co"># graphing acc against alpha values</span></span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">4</span>))</span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>sc <span class="op">=</span> ax.scatter(</span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>    hist_results[<span class="st">'param_model__max_iter'</span>],</span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>    hist_results[<span class="st">'mean_test_score'</span>],</span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>    c<span class="op">=</span>np.log10(hist_results[<span class="st">'param_model__learning_rate'</span>].astype(<span class="bu">float</span>)),</span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'viridis'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>,</span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Max Iterations'</span>)</span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'CV Accuracy'</span>)</span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'HistGradientBoosting CV Results  (color = log10 learning_rate)'</span>)</span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a>plt.colorbar(sc, ax<span class="op">=</span>ax, label<span class="op">=</span><span class="st">'log10(learning_rate)'</span>)</span>
+<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sample_analysis_files/figure-html/cell-22-output-1.png" width="648" height="372" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Once again, I evaluated the boosting model with the best parameter values and got an accuracy of 0.790. The associated confusion matrix is shown below.</p>
+<div id="77ee2339" class="cell" data-execution_count="22">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pipeline with optimal parameter values</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>best_hist_mod <span class="op">=</span> Pipeline([</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'preproc'</span>, preproc),</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'model'</span>, HistGradientBoostingClassifier(</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>        max_iter<span class="op">=</span> <span class="dv">428</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>        learning_rate<span class="op">=</span> <span class="fl">0.003793</span>,</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>        random_state<span class="op">=</span> <span class="dv">4025</span>))</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>], memory<span class="op">=</span> memory)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># cross validation</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>hist_cv <span class="op">=</span> cross_validate(best_hist_mod, X_train, y_train, cv<span class="op">=</span> skf, scoring<span class="op">=</span> {<span class="st">'acc'</span>: <span class="st">'accuracy'</span>})</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co"># graph of confusion matrix</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>best_hist_mod.fit(X_train, y_train)</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>y_preds <span class="op">=</span> best_hist_mod.predict(X_test)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">5</span>))</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>ConfusionMatrixDisplay.from_predictions(</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    y_test, y_preds,</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax, colorbar<span class="op">=</span><span class="va">False</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Confusion Matrix'</span>)</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sample_analysis_files/figure-html/cell-23-output-1.png" width="498" height="468" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Here is a plot showing the top ten features indicated by the boosting model.</p>
+<div id="4834f6f6" class="cell" data-execution_count="23">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># getting the permutation importance</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>perm <span class="op">=</span> permutation_importance(</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    hist_grid.best_estimator_, X_test, y_test,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    n_repeats<span class="op">=</span><span class="dv">5</span>, random_state<span class="op">=</span><span class="dv">4025</span>, n_jobs<span class="op">=-</span><span class="dv">1</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> (pd.DataFrame({<span class="st">'feature'</span>: X_test.columns, <span class="st">'importance'</span>: perm.importances_mean})</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>            .nlargest(<span class="dv">10</span>, <span class="st">'importance'</span>))</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co"># plotting the top ten important features</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">6</span>))</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>ax.barh(df[<span class="st">'feature'</span>][::<span class="op">-</span><span class="dv">1</span>], df[<span class="st">'importance'</span>][::<span class="op">-</span><span class="dv">1</span>], color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Importance'</span>)</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="ss">f'Top 10 Features — HistGradientBoostingClassifier (permutation)'</span>)</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sample_analysis_files/figure-html/cell-24-output-1.png" width="662" height="564" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The boosting model indicates the most important predictors are if the player is the point victor and the players’ scores within the game.</p>
+</section>
+</section>
+<section id="performance-analysis" class="level1">
+<h1>Performance Analysis</h1>
+<p>First, starting with the first two goals, it looks swings in play may be random but there are streaks of momentum for a player.</p>
+<p>Now, the bulk of the sample analysis focuses on the last two goals. First, here is a table of the final accuracy of each model for comparison:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Model</th>
+<th style="text-align: center;">Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Decision Tree</td>
+<td style="text-align: center;">0.784</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Random Forest</td>
+<td style="text-align: center;">0.783</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Boosting</td>
+<td style="text-align: center;">0.790</td>
+</tr>
+</tbody>
+</table>
+<p>Final results show that the boosting model performed the best in predicting the swings in play.</p>
+</section>
+<section id="conclusions" class="level1">
+<h1>Conclusions</h1>
+<p>Despite swings in play appearing to be possibly random, the above models have an accuracy greater than 0.5, indicating swings in play may not be random. But on the other hand, the largest accuracy value is 0.790, which is not the desired accuracy for a model.</p>
+<p>Evaluating the models, we see that the boosting model had the greatest performance, though only improving accuracy by a small amount from the decision tree model. According to the boosting model, it appears the most important factors in predcting swings in play is the winner of the point, winner of the game, and the score of each player.</p>
+<p>The boosting model has a mediocre performance. In the future, I recommend more feature engineering. Simple procedures include computing the ratio between the distance each player ran during the point and computing the time from the previous point. A larger problem to address is the complicated scoring system in tennis. Total accumulated points a player scores does not translate well to their game and set scores. Additionally, the scoring rules become more completed in the event of tiebreakers and deuces. Possibly indulging more time into finding a way to handle this issue can help model performance. Furthermore, it could be helpful to further divide the swings in play variable into four categories: “P1 Swing”, “P2 Swing”, “P1 Momentum”, and “P2 Momentum”. I believe this help improve the salience of other variables, like aces, if momentum was split for both players. Lastly, I believe the missing values in the serving and returning related variables may be due to double faults. Thus, these missing values are not completely random and may provide more details to the model if treated appropriately.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/LBright139\.github\.io\/my-website\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
