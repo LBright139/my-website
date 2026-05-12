@@ -66,7 +66,7 @@ from sklearn.inspection import permutation_importance
 ```
 
 ## Data Manipulation
-As stated above, this sample analysis uses data from each match during the 2023 Wimbledon. I used an an edited version because there were some errors in the data that I fixed. Normally, I wouldn't mess with the raw data.
+As stated above, this sample analysis uses data from each match during the 2023 Wimbledon. I used an edited version because there were some errors in the data that I fixed. Normally, I wouldn't mess with the raw data.
 
 ```{python}
 # | fold-code: true
@@ -74,10 +74,6 @@ As stated above, this sample analysis uses data from each match during the 2023 
 # loading dataset
 match = pd.read_csv("2024_Wimbledon_featured_matches_edited.csv")
 ```
-
-The variables of the dataset included:
-
-- `match_id`: The identification number of each match
 
 After initially looking at the data, I noticed there were a handful of binary variables that had two columns, one for each player, that could be condensed into one column. Thus, I combined the columns for if the player hits an ace serve, hits a winner shot, has a double fault, made an unforced error, made it to the net during the point, had an opportunity to win a game the other player was serving (called a break point), if they won the break point, and if they missed the break point.
 ```{python}
@@ -109,6 +105,7 @@ for i in range(rows):
 ```
 
 Despite fixing some errors in the data, there were some more errors in the elapsed time between points in the middle of one of the matches. I knew I could fix this error without editing the raw data. After I corrected any errors in the elapsed time, I converted the elapsed time into the total seconds that have passed at that given point since the beginning of the match.
+
 ```{python}
 # rows 584 to 634 have incorrect format for elapsed_time
 # Replace hour 24 with 0 and hour 25 with 1 in rows 584-634
@@ -125,6 +122,7 @@ match['elapsed_time'] = elapsed_time
 ```
 
 Now that I have merged some columns and fixed some data entry errors, I dropped redundant columns, renamed the columns I merged, and then categorized the columns into if they were a numerical variable or categorical variable. Then, I changed all the category variables into category dtypes.
+
 ```{python}
 # dropping the p2 columns that were combined
 match = match.drop(columns= ['p2_ace', 'p2_winner', 'p2_double_fault', 'p2_unf_err', 'p2_net_pt',
@@ -150,6 +148,7 @@ match[cat_cols] = match[cat_cols].astype('category')
 ```
 
 The last thing I did for the data manipulation was to compute the difference in the accumulated points between the players at the end of each point, compute the derivative at each point in the game, then calculated swings in play as the critical points in the difference in accumulated points between the players.
+
 ```{python}
 # | fold-code: true
 # | code-summary: "Show code"
@@ -213,6 +212,7 @@ mat['swings_in_play'] = mat['swings_in_play'].astype('category')
 
 # Exploratory Data Analysis
 Here is the distribution of the swings in play variable.
+
 ```{python}
 p = (ggplot(mat, aes(x= 'swings_in_play', y= after_stat('count'))) +
      geom_bar(color= 'blue') +
@@ -221,7 +221,8 @@ p = (ggplot(mat, aes(x= 'swings_in_play', y= after_stat('count'))) +
 p.show()
 ```
 
-Here is a line plot of the final match of the 2023 Wimbledon. It showcases the difference in accumulated points between both players at a given point in the match. Since accumulated points does not easily translate to the set and game score for each player, it only roughly indicates when player is winning and by how much.
+Here is a line plot of the final match of the 2023 Wimbledon. It showcases the difference in accumulated points between both players at a given point in the match. Since accumulated points does not easily translate to the set and game score for each player, it only roughly indicates which player is winning and by how much.
+
 ```{python}
 # grouping data to find out the different matches in the dataset
 match_grouped = mat.groupby('match_id')
@@ -240,10 +241,12 @@ p.show()
 
 ## Missing Values
 I spent most of my data exporation looking into some of the missing values. There are missing values for the speed of the serve, the width of the serve, the depth of the serve, and the depth of the return. I particularly find this odd because each point involves one of the players serving at least once. But it is possible for the serve to not be recorded if it was a double fault. Similarly, it is possible the return depth was not recorded if the serve was an ace. So, I did a bit more digging. First, I created a heatmap of the missing variables.
+
 ```{python}
-print(mo.heatmap(mat))
+mo.heatmap(mat, figsize= (7,7))
 ```
-We see here that there is a perfect correlation between serve depth and serve width. On the other hand, the speed of the serve and the depth of the return are not strongly correlated to the other variables with missing data.
+
+As you can see, there is a perfect correlation between serve depth and serve width. On the other hand, the speed of the serve and the depth of the return are not strongly correlated to the other variables with missing data.
 
 I looked more into if missing values for serve speed, width, and depth are the result of double faults and didn't come to any strong conclusions. It appears that at least most points, if not all, that occur due to a double fault have missing values for serve speed, width, and depth but not all missing values for these three variables occured when there was a double fault. A similar story occured for return depth and ace serves.
 
@@ -264,7 +267,8 @@ mat_train, mat_test = train_test_split(
 )
 ```
 
-Next, I created a dataset with all of the predictors and a dataset with just the outcome variable for both the training and test datasets. Then, I created a preproccesing pipeline to be used when model building. This pipeline works differently depending if the variable is numerical or categorical. For numerical variables, then the pipeline simply imputed the median value for any missing values in the dataset. I choose the median value as the median value is not as sensitive to outliers as the mean is. For categorical variables, the pipeline imputes the most frequent category for missing values and then creates dummy variables for each category, except the first category of a variable.
+Next, I created a dataset with all of the predictors and a dataset with just the outcome variable for both the training and test datasets. Then, I created a preproccesing pipeline to be used when model building. This pipeline works differently depending if the variable is numerical or categorical. For numerical variables, the pipeline simply imputed the median value for any missing values in the dataset. I choose the median value as the median value is not as sensitive to outliers as the mean is. For categorical variables, the pipeline imputes the most frequent category for missing values and then creates dummy variables for each category, except the first category of a variable.
+
 ```{python}
 # | fold-code: true
 # | code-summary: "Show code"
@@ -275,8 +279,6 @@ X_test = mat_test.drop(columns= ['swings_in_play'])
 y_test = mat_test['swings_in_play']
 
 # preprocessing pipeline
-# used median imputing strategy for num_vars because I assume there will be right skewed predictors
-# need to further look into missing values (there shouldn't be any MCAR values)
 preproc = ColumnTransformer([
     ('num', Pipeline([
         ('impute', SimpleImputer(strategy= 'median'))
@@ -433,7 +435,7 @@ plt.show()
 The model indicates that the most imporant predictors are if player 2 was the point victor and if player 1 or player 2 have a score of 15 or 30.
 
 ## Random Forest
-Now, decision trees are known to not be the most accurate models, trading flexibility for interpretability. Thus, I decided to try a random forest model to help improve accuracy in predict swings in play.
+Now, decision trees are known to not be the most accurate models, trading flexibility for interpretability. Thus, I decided to try a random forest model to help improve accuracy in predicting swings in play.
 
 Here I created a baseline random forest model and then tuned the number of max features to improve model accuracy. The optimal value for the number of max features is 25.
 
@@ -615,7 +617,7 @@ best_hist_mod = Pipeline([
 hist_cv = cross_validate(best_hist_mod, X_train, y_train, cv= skf, scoring= {'acc': 'accuracy'})
 
 # graph of confusion matrix
-best_hist_mod, .fit(X_train, y_train)
+best_hist_mod.fit(X_train, y_train)
 y_preds = best_hist_mod.predict(X_test)
 
 fig, ax = plt.subplots(figsize=(6, 5))
@@ -661,6 +663,8 @@ Now, the bulk of the sample analysis focuses on the last two goals. First, here 
 | Decision Tree | 0.784 |
 | Random Forest | 0.783 |
 | Boosting | 0.790 |
+
+Final results show that the boosting model performed the best in predicting the swings in play.
 
 # Conclusions
 Despite swings in play appearing to be possibly random, the above models have an accuracy greater than 0.5, indicating swings in play may not be random. But on the other hand, the largest accuracy value is 0.790, which is not the desired accuracy for a model.
