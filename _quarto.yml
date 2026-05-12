@@ -2,14 +2,18 @@ project:
   type: website
 
 website:
-  title: "my-website"
+  title: "Logan Bright's Website"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
-      - href: L_Bright_Resume_St_Lukes_Data_Engineer_April_2026.pdf
+      - sample_analysis.qmd
+      - href: L_Bright_Resume.pdf
         text: Resume
+        target: _blank
+      - href: L_Bright_Cover_Letter.pdf
+        text: Cover Letter
+        target: _blank
 
 format:
   html:
@@ -18,6 +22,4 @@ format:
       - brand
     css: styles.css
     toc: true
-
-
-
+    link_external-newwindow: true
