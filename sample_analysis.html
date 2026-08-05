@@ -164,14 +164,6 @@ window.Quarto = {
     <a class="nav-link active" href="./sample_analysis.html" aria-current="page"> 
 <span class="menu-text">Sample Analysis</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./L_Bright_Resume.pdf" target="_blank"> 
-<span class="menu-text">Resume</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./L_Bright_Cover_Letter.pdf" target="_blank"> 
-<span class="menu-text">Cover Letter</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -274,7 +266,7 @@ window.Quarto = {
 <section id="python-packages" class="level2">
 <h2 class="anchored" data-anchor-id="python-packages">Python Packages</h2>
 <p>This project was programmed entirely in Python. The packages used consisted of pandas, numpy, matplotlib.pyplot, plotnine, missingno, re, joblib, and sklearn.</p>
-<div id="b13e63d0" class="cell" data-fold-code="true" data-execution_count="1">
+<div id="4b2c83a8" class="cell" data-fold-code="true" data-execution_count="1">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -300,7 +292,7 @@ window.Quarto = {
 <section id="data-manipulation" class="level2">
 <h2 class="anchored" data-anchor-id="data-manipulation">Data Manipulation</h2>
 <p>As stated above, this sample analysis uses data from each match during the 2023 Wimbledon. I used an edited version because there were some errors in the data that I fixed. Normally, I wouldn’t mess with the raw data.</p>
-<div id="1b4aa421" class="cell" data-fold-code="true" data-execution_count="2">
+<div id="f3733b29" class="cell" data-fold-code="true" data-execution_count="2">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># loading dataset</span></span>
@@ -308,7 +300,7 @@ window.Quarto = {
 </details>
 </div>
 <p>After initially looking at the data, I noticed there were a handful of binary variables that had two columns, one for each player, that could be condensed into one column. Thus, I combined the columns for if the player hits an ace serve, hits a winner shot, has a double fault, made an unforced error, made it to the net during the point, had an opportunity to win a game the other player was serving (called a break point), if they won the break point, and if they missed the break point.</p>
-<div id="59f3f1a0" class="cell" data-fold-code="true" data-execution_count="3">
+<div id="642b9cb5" class="cell" data-fold-code="true" data-execution_count="3">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># getting number of observations</span></span>
@@ -337,7 +329,7 @@ window.Quarto = {
 </details>
 </div>
 <p>Despite fixing some errors in the data, there were some more errors in the elapsed time between points in the middle of one of the matches. I knew I could fix this error without editing the raw data. After I corrected any errors in the elapsed time, I converted the elapsed time into the total seconds that have passed at that given point since the beginning of the match.</p>
-<div id="32c7afcc" class="cell" data-execution_count="4">
+<div id="3b00b0fb" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rows 584 to 634 have incorrect format for elapsed_time</span></span>
@@ -355,7 +347,7 @@ window.Quarto = {
 </details>
 </div>
 <p>Now that I have merged some columns and fixed some data entry errors, I dropped redundant columns, renamed the columns I merged, and then categorized the columns into if they were a numerical variable or categorical variable. Then, I changed all the category variables into category dtypes.</p>
-<div id="73ef611c" class="cell" data-execution_count="5">
+<div id="6b1b3490" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dropping the p2 columns that were combined</span></span>
@@ -382,7 +374,7 @@ window.Quarto = {
 </details>
 </div>
 <p>The last thing I did for the data manipulation was to compute the difference in the accumulated points between the players at the end of each point, compute the derivative at each point in the game, then calculated swings in play as the critical points in the difference in accumulated points between the players.</p>
-<div id="2d4ed230" class="cell" data-fold-code="true" data-execution_count="6">
+<div id="02f533cf" class="cell" data-fold-code="true" data-execution_count="6">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dropping id variables (except match_id to seperate matches later)</span></span>
@@ -448,7 +440,7 @@ window.Quarto = {
 <section id="exploratory-data-analysis" class="level1">
 <h1>Exploratory Data Analysis</h1>
 <p>Here is the distribution of the swings in play variable.</p>
-<div id="c726cd44" class="cell" data-execution_count="7">
+<div id="5ebec933" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> (ggplot(mat, aes(x<span class="op">=</span> <span class="st">'swings_in_play'</span>, y<span class="op">=</span> after_stat(<span class="st">'count'</span>))) <span class="op">+</span></span>
@@ -466,7 +458,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Here is a line plot of the final match of the 2023 Wimbledon. It showcases the difference in accumulated points between both players at a given point in the match. Since accumulated points does not easily translate to the set and game score for each player, it only roughly indicates which player is winning and by how much.</p>
-<div id="b2846f7c" class="cell" data-execution_count="8">
+<div id="a10ffce8" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># grouping data to find out the different matches in the dataset</span></span>
@@ -494,7 +486,7 @@ window.Quarto = {
 <section id="missing-values" class="level2">
 <h2 class="anchored" data-anchor-id="missing-values">Missing Values</h2>
 <p>I spent most of my data exporation looking into some of the missing values. There are missing values for the speed of the serve, the width of the serve, the depth of the serve, and the depth of the return. I particularly find this odd because each point involves one of the players serving at least once. But it is possible for the serve to not be recorded if it was a double fault. Similarly, it is possible the return depth was not recorded if the serve was an ace. So, I did a bit more digging. First, I created a heatmap of the missing variables.</p>
-<div id="ed0da654" class="cell" data-execution_count="9">
+<div id="19469f58" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mo.heatmap(mat, figsize<span class="op">=</span> (<span class="dv">7</span>,<span class="dv">7</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -514,7 +506,7 @@ window.Quarto = {
 <section id="data-splitting-preprocessing" class="level1">
 <h1>Data Splitting &amp; Preprocessing</h1>
 <p>Before I start building and fitting models, I split the dataset into a train and test set. I startify the dataset based on swings in play.</p>
-<div id="6f5536bb" class="cell" data-fold-code="true" data-execution_count="10">
+<div id="0e3f4802" class="cell" data-fold-code="true" data-execution_count="10">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dropping match id and dx variables</span></span>
@@ -530,7 +522,7 @@ window.Quarto = {
 </details>
 </div>
 <p>Next, I created a dataset with all of the predictors and a dataset with just the outcome variable for both the training and test datasets. Then, I created a preproccesing pipeline to be used when model building. This pipeline works differently depending if the variable is numerical or categorical. For numerical variables, the pipeline simply imputed the median value for any missing values in the dataset. I choose the median value as the median value is not as sensitive to outliers as the mean is. For categorical variables, the pipeline imputes the most frequent category for missing values and then creates dummy variables for each category, except the first category of a variable.</p>
-<div id="89f1c14a" class="cell" data-fold-code="true" data-execution_count="11">
+<div id="58bb22f8" class="cell" data-fold-code="true" data-execution_count="11">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># defining X and y sets</span></span>
@@ -558,7 +550,7 @@ window.Quarto = {
 <section id="decision-tree-classifier" class="level2">
 <h2 class="anchored" data-anchor-id="decision-tree-classifier">Decision Tree Classifier</h2>
 <p>I built a decision tree classifier as a baseline model and evaluated its performance on the test set using cross validation and accuracy as the metric. The graph below shows its associated confusion matrix.</p>
-<div id="d8035319" class="cell" data-execution_count="12">
+<div id="b1ae177d" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># decision tree pipeline</span></span>
@@ -595,7 +587,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Next, I tuned the cost complexity parameter, <span class="math inline">\(\alpha\)</span>, of the decision tree model using cross validation (CV). The plot belows shows the accuracy using CV for each value of alpha specified. Then using the one-standard error rule, I chose the largest <span class="math inline">\(\alpha\)</span> value to create a more parsimonous model. The optimal value for <span class="math inline">\(\alpha\)</span> is 0.00379.</p>
-<div id="66a69d48" class="cell" data-execution_count="13">
+<div id="4578161e" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># param dictionary</span></span>
@@ -644,7 +636,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Now, I created a new decision tree classifier with the optimal value for <span class="math inline">\(\alpha\)</span>. I evaluated it using stratified cross validation and got an accuracy of 0.784. The associated confusion matrix is shown below.</p>
-<div id="ec4855e1" class="cell" data-fold-code="true" data-execution_count="14">
+<div id="b0198927" class="cell" data-fold-code="true" data-execution_count="14">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pipeline with optimal alpha value</span></span>
@@ -681,7 +673,7 @@ window.Quarto = {
 </div>
 <p>Looking at the confusion matrix, it appears the model struggles the most with predicting no changes in momentum for one player.</p>
 <p>Here is a plot of the associated decision tree.</p>
-<div id="b10e06ae" class="cell" data-execution_count="15">
+<div id="c9159ada" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plotting the tree</span></span>
@@ -703,7 +695,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Lastly, here is a plot showing the top ten features indicated by the decision tree model.</p>
-<div id="9eaf4138" class="cell" data-execution_count="16">
+<div id="2eeece8c" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># getting feature names</span></span>
@@ -739,7 +731,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="random-forest">Random Forest</h2>
 <p>Now, decision trees are known to not be the most accurate models, trading flexibility for interpretability. Thus, I decided to try a random forest model to help improve accuracy in predicting swings in play.</p>
 <p>Here I created a baseline random forest model and then tuned the number of max features to improve model accuracy. The optimal value for the number of max features is 25.</p>
-<div id="ccba8004" class="cell" data-execution_count="17">
+<div id="7ff4549f" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># defining location for cache</span></span>
@@ -797,7 +789,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Now, I created a new random forest classifer with the optimal number of max values. I evaluated it using stratified cross validation and got an accuracy of 0.783. The associated confusion matrix is shown below.</p>
-<div id="57313bfa" class="cell" data-execution_count="18">
+<div id="599b0388" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pipeline with optimal number of max features</span></span>
@@ -833,7 +825,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Here is a plot showing the top ten features indicated by the random forest model.</p>
-<div id="49775a2d" class="cell" data-execution_count="19">
+<div id="351348a1" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># getting feature names</span></span>
@@ -868,7 +860,7 @@ window.Quarto = {
 <section id="boosting" class="level2">
 <h2 class="anchored" data-anchor-id="boosting">Boosting</h2>
 <p>The random forest model did not perform better than the decision tree model, thus I created a boosting model, known to be more flexible than random forest models. I chose to employ a histogram-based gradient boosting model, which handles missing values natively. Thus, I created a new pipeline that doesn’t involve imputing missing values.</p>
-<div id="ffc3f336" class="cell" data-execution_count="20">
+<div id="e682aebe" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new pipeline for boosting model</span></span>
@@ -880,7 +872,7 @@ window.Quarto = {
 </details>
 </div>
 <p>I followed a similar pattern as the random forest model, tuning the learning rate and maximum number of iterations of the model. The plot below displays the results of the CV. The best value for the learning rate is 0.003793 and the best value for the maximum number of iterations is 428.</p>
-<div id="dacacbcd" class="cell" data-execution_count="21">
+<div id="a775149a" class="cell" data-execution_count="21">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># baseline histgradientboosting model</span></span>
@@ -936,7 +928,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Once again, I evaluated the boosting model with the best parameter values and got an accuracy of 0.790. The associated confusion matrix is shown below.</p>
-<div id="77ee2339" class="cell" data-execution_count="22">
+<div id="bb90c82b" class="cell" data-execution_count="22">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pipeline with optimal parameter values</span></span>
@@ -973,7 +965,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Here is a plot showing the top ten features indicated by the boosting model.</p>
-<div id="4834f6f6" class="cell" data-execution_count="23">
+<div id="945fbc61" class="cell" data-execution_count="23">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># getting the permutation importance</span></span>
