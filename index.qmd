@@ -7,4 +7,4 @@ format:
         css: styles.css
 ---
 
-Hello! I am Logan Bright. If you are interested in looking at my resume, click [here](L_Bright_Resume.pdf), or my cover letter, click [here](L_Bright_Cover_Letter.pdf). If you are interested in the sample analysis, click [here](sample_analysis.qmd).
+Hello! I am Logan Bright. If you are interested in the sample analysis, click [here](sample_analysis.qmd).

@@ -8,12 +8,6 @@ website:
       - href: index.qmd
         text: Home
       - sample_analysis.qmd
-      - href: L_Bright_Resume.pdf
-        text: Resume
-        target: _blank
-      - href: L_Bright_Cover_Letter.pdf
-        text: Cover Letter
-        target: _blank
 
 format:
   html:
